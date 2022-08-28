@@ -9,51 +9,51 @@
 </head>
 <body class="h-100 d-flex align-items-center">
     
-    <div class="container align-content-center" id="calculator">
+    <div class="container align-content-center">
         <div class="row border border-danger bg-secondary bg-opacity-25"  id="output">
-            <div class="row fs-5 justify-content-end" id="previous-operand">1111*</div>
-            <div class="row fs-1 justify-content-end" id="current-operand">555555555555555555555555555555555555555555555555555555555555</div>
+            <div class="row fs-5 justify-content-end" data-previous-operand>1111*</div>
+            <div class="row fs-1 justify-content-end" data-current-operand>555555555555555555555555555555555555555555555555555555555555</div>
         </div>
 
         <div class="row py-2">
-            <button class="col mx-3 btn btn-dark fs-5">AC</button>
-            <button class="col mx-3 btn btn-dark fs-5">CE</button>
+            <button class="col mx-3 btn btn-dark fs-5" data-all-clear>AC</button>
+            <button class="col mx-3 btn btn-dark fs-5" data-delete>CE</button>
         </div>
 
         <div class="row">
             <div class="col px-3">
                 <div class="row gy-2">
-                    <button class="btn btn-dark fs-5">7</button>
-                    <button class="btn btn-dark fs-5">4</button>
-                    <button class="btn btn-dark fs-5">1</button>
-                    <button class="btn btn-dark fs-5">0</button>
+                    <button class="btn btn-dark fs-5" data-number>7</button>
+                    <button class="btn btn-dark fs-5" data-number>4</button>
+                    <button class="btn btn-dark fs-5" data-number>1</button>
+                    <button class="btn btn-dark fs-5" data-number>0</button>
                 </div>
             </div>
 
             <div class="col px-3">
                 <div class="row gy-2">
-                    <button class="btn btn-dark fs-5">8</button>
-                    <button class="btn btn-dark fs-5">5</button>
-                    <button class="btn btn-dark fs-5">2</button>
-                    <button class="btn btn-dark fs-5">.</button>
+                    <button class="btn btn-dark fs-5" data-number>8</button>
+                    <button class="btn btn-dark fs-5" data-number>5</button>
+                    <button class="btn btn-dark fs-5" data-number>2</button>
+                    <button class="btn btn-dark fs-5" data-number>.</button>
                 </div>
             </div>
 
             <div class="col px-3">
                 <div class="row gy-2">
-                    <button class="btn btn-dark fs-5">9</button>
-                    <button class="btn btn-dark fs-5">6</button>
-                    <button class="btn btn-dark fs-5">3</button>
-                    <button class="btn btn-danger fs-5">=</button>
+                    <button class="btn btn-dark fs-5" data-number>9</button>
+                    <button class="btn btn-dark fs-5" data-number>6</button>
+                    <button class="btn btn-dark fs-5" data-number>3</button>
+                    <button class="btn btn-danger fs-5" data-equals>=</button>
                 </div>
             </div>
             
             <div class="col px-3">
                 <div class="row gy-2">
-                    <button class="btn btn-primary fs-5">+</button>
-                    <button class="btn btn-primary fs-5">-</button>
-                    <button class="btn btn-primary fs-5">*</button>
-                    <button class="btn btn-primary fs-5">/</button>
+                    <button class="btn btn-primary fs-5" data-operator>+</button>
+                    <button class="btn btn-primary fs-5" data-operator>-</button>
+                    <button class="btn btn-primary fs-5" data-operator>*</button>
+                    <button class="btn btn-primary fs-5" data-operator>/</button>
                 </div>
             </div>
         </div>
