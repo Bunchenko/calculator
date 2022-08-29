@@ -1,4 +1,5 @@
 import { Calculator } from "./calculator.js";
+import { ScientificCalculator } from "./scientificCalculator.js";
 
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operator]");
