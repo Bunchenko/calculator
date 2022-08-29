@@ -36,12 +36,6 @@ class Calculator {
 	}
 
 	appendNumber(number) {
-		if (number === "0" && this.currentOperand === "0") {
-			return;
-		} else if (number !== "0" && this.currentOperand === "0") {
-			this.currentOperand = "";
-		}
-
 		if (number === "." && this.currentOperand.includes(".")) {
 			return;
 		} else if (number === "." && this.currentOperand === "") {
