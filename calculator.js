@@ -1,5 +1,5 @@
 export class Calculator {
-	#operators = {
+	_operators = {
 		"+": (a, b) => a + b,
 		"-": (a, b) => a - b,
 		"/": (a, b) => a / b,
@@ -12,10 +12,10 @@ export class Calculator {
 		this.clear();
 	}
 
-	#updateDisplay() {
+	_updateDisplay() {
 		this.currentOperandOutput.innerText = this.currentOperand;
-		if (this.operation != undefined) {
-			this.previousOperandOutput.innerText = `${this.previousOperand} ${this.operation}`;
+		if (this.operator != undefined) {
+			this.previousOperandOutput.innerText = `${this.previousOperand} ${this.operator}`;
 		} else {
 			this.previousOperandOutput.innerText = "";
 		}
@@ -24,15 +24,15 @@ export class Calculator {
 	clear() {
 		this.previousOperand = "";
 		this.currentOperand = "";
-		this.operation = undefined;
+		this.operator = undefined;
 
-		this.#updateDisplay();
+		this._updateDisplay();
 	}
 
 	delete() {
 		this.currentOperand = this.currentOperand.toString().slice(0, -1);
 
-		this.#updateDisplay();
+		this._updateDisplay();
 	}
 
 	appendNumber(number) {
@@ -44,20 +44,20 @@ export class Calculator {
 
 		this.currentOperand = this.currentOperand.toString() + number.toString();
 
-		this.#updateDisplay();
+		this._updateDisplay();
 	}
 
-	chooseOperation(operation) {
+	chooseOperator(operator) {
 		if (!this.currentOperand) return;
 		if (this.previousOperand !== "") {
 			this.compute();
 		}
 
-		this.operation = operation;
+		this.operator = operator;
 		this.previousOperand = this.currentOperand;
 		this.currentOperand = "";
 
-		this.#updateDisplay();
+		this._updateDisplay();
 	}
 
 	compute() {
@@ -66,16 +66,16 @@ export class Calculator {
 		const previous = parseFloat(this.previousOperand);
 		if (isNaN(current) || isNaN(previous)) return;
 
-		result = this.#operators[this.operation](previous, current);
+		result = this._operators[this.operator](previous, current);
 
 		if (result.toString().includes(".")) {
 			result = result.toFixed(3);
 		}
 
 		this.currentOperand = result;
-		this.operation = undefined;
+		this.operator = undefined;
 		this.previousOperand = "";
 
-		this.#updateDisplay();
+		this._updateDisplay();
 	}
 }
