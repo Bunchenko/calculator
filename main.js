@@ -16,7 +16,7 @@ function toggleStyle() {
 	unaryOperationButtons.forEach((button) => button.classList.toggle("d-none"));
 }
 
-const calculator = new Calculator(previousOperandOutput, currentOperandOutput);
+let calculator = new ScientificCalculator(previousOperandOutput, currentOperandOutput);
 
 numberButtons.forEach((button) =>
 	button.addEventListener("click", () => {
@@ -43,4 +43,12 @@ deleteButton.addEventListener("click", () => {
 	calculator.delete();
 });
 
-scientificCalculatorButton.addEventListener("click", toggleStyle);
+scientificCalculatorButton.addEventListener("click", () => {
+	toggleStyle();
+});
+
+unaryOperationButtons.forEach((button) =>
+	button.addEventListener("click", () => {
+		calculator.chooseUnaryOperator(button.innerText);
+	})
+);

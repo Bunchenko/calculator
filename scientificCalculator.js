@@ -14,6 +14,16 @@ export class ScientificCalculator extends Calculator {
 		super(previousOperandOutput, currentOperandOutput);
 	}
 
+	_updateDisplayUnary() {
+		this.currentOperandOutput.innerText = this.currentOperand;
+	}
+
+	chooseUnaryOperator(operator) {
+		this.unaryOperator = operator;
+
+		this.computeUnary();
+	}
+
 	computeUnary() {
 		let result;
 		let current = parseFloat(this.currentOperand);
@@ -22,8 +32,8 @@ export class ScientificCalculator extends Calculator {
 		result = this._unaryOperators[this.unaryOperator](current);
 
 		this.currentOperand = result;
-		this.unaryOperator = undefined; //!
+		this.unaryOperator = undefined;
 
-		this._updateDisplay(); //!
+		this._updateDisplayUnary(); //!
 	}
 }
