@@ -1,5 +1,6 @@
 import { Calculator } from "./calculator.js";
 import { ScientificCalculator } from "./scientificCalculator.js";
+import { History } from "./history.js";
 
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operator]");
