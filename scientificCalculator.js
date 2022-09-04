@@ -31,9 +31,11 @@ export class ScientificCalculator extends Calculator {
 
 		result = this._unaryOperators[this.unaryOperator](current);
 
+		result = this.roundFloatNumber(result);
+
 		this.currentOperand = result;
 		this.unaryOperator = undefined;
 
-		this._updateDisplayUnary(); //!
+		this._updateDisplayUnary();
 	}
 }

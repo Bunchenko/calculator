@@ -68,14 +68,16 @@ export class Calculator {
 
 		result = this._operators[this.operator](previous, current);
 
-		if (result.toString().includes(".")) {
-			result = result.toFixed(3);
-		}
+		result = this.roundFloatNumber(result);
 
 		this.currentOperand = result;
 		this.operator = undefined;
 		this.previousOperand = "";
 
 		this._updateDisplay();
+	}
+
+	roundFloatNumber(number) {
+		return number.toString().includes(".") ? number.toFixed(4) : number;
 	}
 }
