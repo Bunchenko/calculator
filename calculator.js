@@ -2,7 +2,7 @@ export class Calculator {
 	_operators = {
 		"+": (a, b) => a + b,
 		"-": (a, b) => a - b,
-		"/": (a, b) => a / b,
+		"÷": (a, b) => a / b,
 		"*": (a, b) => a * b,
 	};
 

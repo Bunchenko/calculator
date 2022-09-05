@@ -27,17 +27,27 @@ numberButtons.forEach((button) =>
 
 operationButtons.forEach((button) => {
 	button.addEventListener("click", () => {
+		History.expandCurrentCalculation(calculator.currentOperand);
+
 		calculator.chooseOperator(button.innerText);
+
+		History.expandCurrentCalculation(calculator.operator);
+
 		calculator.compute();
 	});
 });
 
 equalsButton.addEventListener("click", () => {
+	History.expandCurrentCalculation(calculator.currentOperand);
+	History.expandCurrentCalculation(equalsButton.innerText);
 	calculator.compute();
+	History.expandCurrentCalculation(calculator.currentOperand);
+	History.appendToDropdown();
 });
 
 allClearButton.addEventListener("click", () => {
 	calculator.clear();
+	History.clearCurrentCalculation();
 });
 
 deleteButton.addEventListener("click", () => {
