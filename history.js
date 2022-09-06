@@ -12,7 +12,9 @@ export class History {
 	}
 
 	static expandCurrentCalculation(content) {
-		this.currentCalculation += content;
+		if (content != undefined) {
+			this.currentCalculation += content;
+		}
 	}
 
 	static appendToDropdown() {

@@ -30,19 +30,22 @@ operationButtons.forEach((button) => {
 		History.expandCurrentCalculation(calculator.currentOperand);
 
 		calculator.chooseOperator(button.innerText);
-
-		History.expandCurrentCalculation(calculator.operator);
+		if (!calculator.currentOperand) {
+			History.expandCurrentCalculation(calculator.operator);
+		}
 
 		calculator.compute();
 	});
 });
 
 equalsButton.addEventListener("click", () => {
-	History.expandCurrentCalculation(calculator.currentOperand);
-	History.expandCurrentCalculation(equalsButton.innerText);
-	calculator.compute();
-	History.expandCurrentCalculation(calculator.currentOperand);
-	History.appendToDropdown();
+	if (calculator.currentOperand && calculator.previousOperand) {
+		History.expandCurrentCalculation(calculator.currentOperand);
+		History.expandCurrentCalculation(equalsButton.innerText);
+		calculator.compute();
+		History.expandCurrentCalculation(calculator.currentOperand);
+		History.appendToDropdown();
+	}
 });
 
 allClearButton.addEventListener("click", () => {
